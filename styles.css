@@ -1,0 +1,93 @@
+#right_block, #location_info, #etc_info {
+    font-family: 'Dongle', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+body::before {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+   /* Add animation */
+   background-image:url('background.jpg');
+   background-repeat:no-repeat; 
+   background-size :120% ; /* Adjust this value to allow the image to move */
+   overflow:hidden; 
+   -webkit-filter : blur(5px); 
+   -moz-filter : blur(5px); 
+   -o-filter : blur(5px); 
+   -ms-filter : blur(5px); filter:
+   
+   
+   
+   
+   
+
+blur(5px);
+z-index:-1; content:"";
+animation-name:sildeBlurBgImage ;
+animation-duration :45s ;/* how long it takes to complete one cycle */
+animation-iteration-count :infinite ;/* how many times the animation should play, in this case it will repeat indefinitely */
+animation-timing-function :linear ;/* defines the speed curve of the animation, linear means a constant speed from start to finish */
+}
+
+@keyframes sildeBlurBgImage {
+     /* define our keyframes for the animated gradient*/
+     /* we want to move our image from right (100%) to left (0) and back*/
+     0% {background-position:right bottom;}
+     50% {background-position:left bottom;}
+     100% {background-position:right bottom;}
+}
+
+
+
+.info-item {
+   display :flex ;
+   align-items :center ;
+   margin-bottom: 2px;
+}
+.info-item img {
+   margin-right :10px ;
+}
+
+
+/* Mobile - Landscape */
+@media (min-width: 200px) {
+    body::before {
+    background-size: 400%;
+    }
+}
+
+@media (min-width: 395px) {
+    body::before {
+    background-size: 330%;
+    }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    body::before {
+    background-size: 250%;
+    }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    body::before {
+    background-size: 200%;
+    }
+}
+
+/* Desktop (Large) */
+@media (min-width: 1200px) {
+    body::before {
+    background-size: 120%;
+    }
+}
